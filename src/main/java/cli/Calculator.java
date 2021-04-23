@@ -1,5 +1,6 @@
 package cli;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -180,12 +181,13 @@ public class Calculator {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        DecimalFormat df = new DecimalFormat("#.##########");
         for (Double num: stack) {
             int numIntVal = num.intValue();
             if (num == numIntVal) {
                 sb.append(String.format("%s ", numIntVal));
             } else {
-                sb.append(String.format("%s ", num));
+                sb.append(String.format("%s ", df.format(num)));
             }
         }
         return sb.toString();
